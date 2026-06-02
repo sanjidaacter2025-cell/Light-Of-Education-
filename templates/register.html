@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+
+    <meta name="viewport"
+    content="width=device-width,
+    initial-scale=0.7,
+    maximum-scale=1.0,
+    user-scalable=no">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <div class="container">
+
+        <h2>Register</h2>
+        <p>Create your account</p>
+
+        <form method="POST">
+
+            <input
+            id="name"
+            class="field"
+            type="text"
+            name="name"
+            placeholder="First name"
+            required>
+
+            <input
+            id="A"
+            type="text"
+            name="last_name"
+            class="mobile-input"
+            placeholder="Last name">
+
+            <input
+            id="B"
+            type="tel"
+            name="phone"
+            class="mobile-input"
+            placeholder="01XXXXXXXXX"
+            required>
+
+            <input
+            id="C"
+            type="email"
+            name="gmail"
+            class="mobile-input"
+            placeholder="Gmail account">
+
+            <input
+            id="D"
+            type="password"
+            name="password"
+            class="mobile-input"
+            placeholder="Password"
+            required>
+
+            <input
+            id="E"
+            type="password"
+            name="confirm_password"
+            class="mobile-input"
+            placeholder="Confirm password"
+            required>
+
+            <button type="submit">
+                Register Now
+            </button>
+            {% if error %}
+<p class="error-msg">
+    {{ error }}
+</p>
+{% endif %}
+
+        </form>
+
+        <div class="link">
+            <a href="/login">Back to Login</a>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function checkForm() {
+
+    let password =
+    document.getElementById("D").value;
+
+    let confirm =
+    document.getElementById("E").value;
+
+    if (password !== confirm) {
+        alert("Password মিলছে না");
+        return false;
+    }
+
+    return true;
+}
+</script>
+
+</body>
+</html>
