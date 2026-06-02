@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Light Of Education</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:white;
+}
+
+.logo{
+    width:220px;
+    margin-bottom:20px;
+}
+
+/* color text + animation */
+.brand{
+    display:flex;
+    justify-content:center;
+    gap:4px;
+    font-size:32px;
+    font-family:Arial;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.brand span{
+    display:inline-block;
+    animation:l15 1.8s infinite ease-in-out;
+}
+
+.blue{
+    color:#0066cc;
+    animation-delay:0s;
+}
+
+.green{
+    color:#2e7d32;
+    animation-delay:.2s;
+}
+
+.orange{
+    color:#f57c00;
+    animation-delay:.4s;
+}
+
+/* loading animation */
+@keyframes l15{
+    0%,100%{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+    50%{
+        transform:translateY(-8px);
+        opacity:.5;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<img src="{{ url_for('static', filename='logo.jpg') }}" class="logo">
+
+<div class="brand">
+    <span class="blue">LIGHT</span>
+    <span class="green">OF</span>
+    <span class="orange">EDUCATION</span>
+</div>
+
+<script>
+if (sessionStorage.getItem("opened")) {
+    window.location.href="/login";
+} else {
+    sessionStorage.setItem("opened","yes");
+
+    setTimeout(function () {
+        window.location.href="/login";
+    }, 5000);
+}
+</script>
+
+</body>
+</html>
